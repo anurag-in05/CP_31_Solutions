@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define nl endl
+#define vl vector<ll>
+#define vi vector<int>
+#define vvl vector<vector<ll>>
+#define vpl vector<pair<ll,ll>>
+#define mp map<ll,ll>
+#define pr pair<ll,ll>
+#define pb push_back
+#define pop pop_back
+#define all(v) v.begin(), v.end()
+#define rall(v) v.rbegin(), v.rend()
+#define ub upper_bound
+#define lb lower_bound
+#define ff first
+#define ss second
+#define yn(f) f ? cout<<"YES\n" : cout<<"NO\n"
+#define syn(f) f ? cout<<"Yes\n" : cout<<"No\n"
+
+using namespace std;
+
+// ai + aj % x = 0
+// ai - aj % y = 0;
+// means Ai mod y = Aj mod y
+// also Ai mod x = x - (Aj mod x)
+void solve() {
+    int n;cin>>n;
+    int x,y;cin>>x>>y;
+    map<pair<int,int>,long> m;
+    long long ans=0;
+    for(int i=0;i<n;i++){
+        int num;cin>>num;
+        int xx = num%x, yy = num%y;
+        ans+=m[{ (x-xx)%x ,yy}];
+        m[{xx,yy}]++;
+    }    
+    cout<<ans<<endl;
+}
+
+int32_t main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll t;t = 1;
+    cin>>t;
+    while(t--) solve();
+    return 0;
+}
