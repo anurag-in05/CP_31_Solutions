@@ -21,33 +21,29 @@
 using namespace std;
 
 void solve() {
-    string s;cin>>s;
-    int n;cin>>n;
-    n--;
-    string s1;
-    int sz = s.size();
-    int pos = 0;
-    for(auto c:s){
-        while(!s1.empty() && s1.back()>c && pos+sz<=n){
-            s1.pop_back();
-            pos+=sz;
-            sz--;
+    int n,q;cin>>n>>q;
+    vector<int> v(n);
+    for(auto &it:v) cin>>it;
+    int sum = accumulate(v.begin(),v.end(),0);
+    // vector<int> ; 
+    while(q--){
+        int t;cin>>t;
+        if(t==1){
+            int i,x;cin>>i>>x;
+
         }
-        s1+=c;
+        else{
+            int a;cin>>a;
+            cout<<(1LL)*a*n<<nl;
+        }
     }
-    while(!s1.empty() && pos+sz<=n){
-        s1.pop_back();
-        pos+=sz;
-        sz--;
-    }
-    cout<<s1[n-pos];
 }
 
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     ll t;t = 1;
-    cin>>t;
+    // cin>>t;
     while(t--) solve();
     return 0;
 }

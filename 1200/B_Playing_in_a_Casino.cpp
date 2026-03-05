@@ -20,7 +20,7 @@ int main(){
 		long long ans = 0;
 		for (int i = 0; i < m; i++){
 			for (int j = 0; j < n; j++){
-				ans -= (v[i][j] * (n - j - 1));
+				ans -= (v[i][j] * (n - j - 1)); // see where this comes from 
 				ans += (v[i][j] * j);
 			}
 		} 

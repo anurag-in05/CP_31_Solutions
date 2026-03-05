@@ -21,26 +21,23 @@
 using namespace std;
 
 void solve() {
-    string s;cin>>s;
-    int n;cin>>n;
-    n--;
-    string s1;
-    int sz = s.size();
-    int pos = 0;
-    for(auto c:s){
-        while(!s1.empty() && s1.back()>c && pos+sz<=n){
-            s1.pop_back();
-            pos+=sz;
-            sz--;
+    int n,k;cin>>n>>k;
+    int ans=1;
+    if(n<=k){
+        cout<<1<<nl;
+        return;
+    }
+    if(k==1){
+        cout<<n<<nl;
+        return;
+    }
+    for(int i=2;i*i<=n;i++){
+        if(n%i==0){
+            if(i<=k) ans = max(ans,i); 
+            if(n/i<=k) ans=max(ans,n/i);
         }
-        s1+=c;
     }
-    while(!s1.empty() && pos+sz<=n){
-        s1.pop_back();
-        pos+=sz;
-        sz--;
-    }
-    cout<<s1[n-pos];
+    cout<<n/ans<<nl;
 }
 
 int32_t main() {

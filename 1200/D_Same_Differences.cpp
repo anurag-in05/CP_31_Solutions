@@ -21,26 +21,15 @@
 using namespace std;
 
 void solve() {
-    string s;cin>>s;
     int n;cin>>n;
-    n--;
-    string s1;
-    int sz = s.size();
-    int pos = 0;
-    for(auto c:s){
-        while(!s1.empty() && s1.back()>c && pos+sz<=n){
-            s1.pop_back();
-            pos+=sz;
-            sz--;
-        }
-        s1+=c;
+    mp m;
+    ll ans=0;
+    for(int i=0;i<n;i++){
+        ll x;cin>>x;
+        ans+=m[x-i];
+        m[x-i]++;
     }
-    while(!s1.empty() && pos+sz<=n){
-        s1.pop_back();
-        pos+=sz;
-        sz--;
-    }
-    cout<<s1[n-pos];
+    cout<<ans<<nl;
 }
 
 int32_t main() {

@@ -20,27 +20,12 @@
 
 using namespace std;
 
+// implementation 
+// 
 void solve() {
-    string s;cin>>s;
     int n;cin>>n;
-    n--;
-    string s1;
-    int sz = s.size();
-    int pos = 0;
-    for(auto c:s){
-        while(!s1.empty() && s1.back()>c && pos+sz<=n){
-            s1.pop_back();
-            pos+=sz;
-            sz--;
-        }
-        s1+=c;
-    }
-    while(!s1.empty() && pos+sz<=n){
-        s1.pop_back();
-        pos+=sz;
-        sz--;
-    }
-    cout<<s1[n-pos];
+    vector<vector<int>> v(n,vector<int>(n,0));   
+    
 }
 
 int32_t main() {

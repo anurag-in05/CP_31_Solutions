@@ -20,27 +20,22 @@
 
 using namespace std;
 
+// thought of greedy trees
+// 
 void solve() {
-    string s;cin>>s;
     int n;cin>>n;
-    n--;
-    string s1;
-    int sz = s.size();
-    int pos = 0;
-    for(auto c:s){
-        while(!s1.empty() && s1.back()>c && pos+sz<=n){
-            s1.pop_back();
-            pos+=sz;
-            sz--;
-        }
-        s1+=c;
+    vector<int> v(n);
+    map<int,set<int>> m;
+    
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+        m[v[i]].insert(i+1);
     }
-    while(!s1.empty() && pos+sz<=n){
-        s1.pop_back();
-        pos+=sz;
-        sz--;
+    
+    if(m.size()==1){
+        cout<<"NO"<<endl;
     }
-    cout<<s1[n-pos];
+    
 }
 
 int32_t main() {

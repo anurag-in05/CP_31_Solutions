@@ -1,25 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Global variable to store the number of balanced subtrees
-int ans = 0;
 
-// Depth First Search function to calculate the balance of subtrees
+int ans = 0;
 int dfs(int node, vector<vector<int>>& adj, string& s) {
-	// If the node is a leaf node, return 1 if it's white, -1 if it's black
 	if (adj[node].size() == 0) {
 		return s[node - 1] == 'W' ? 1 : -1;
-	}
-	
-	// Initialize count to track the balance of the current subtree
-	int count = 0;
-	
-	// Recursively calculate the balance for each child
+	}	
+	int count = 0;	
 	for (auto child : adj[node]) {
 		count += dfs(child, adj, s);
 	}
 	
-	// Adjust count based on the color of the current node
 	count += (s[node - 1] == 'W' ? 1 : -1);
 	
 	// If the subtree is balanced, increment the answer
