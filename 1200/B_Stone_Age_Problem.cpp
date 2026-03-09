@@ -25,7 +25,8 @@ void solve() {
     vector<int> v(n);
     for(auto &it:v) cin>>it;
     int sum = accumulate(v.begin(),v.end(),0);
-    // vector<int> ; 
+    
+    
     while(q--){
         int t;cin>>t;
         if(t==1){

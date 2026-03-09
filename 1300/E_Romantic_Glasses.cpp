@@ -21,27 +21,34 @@
 using namespace std;
 
 void solve() {
-    int n,k,z;cin>>n>>k>>z;
-    vector<ll> v(n); for(auto &it:v) cin>>it;
-    ll pref=0;
-    ll ans=0;
-    ll best_pair = 0;
-    for(int i=0;i<=k;i++){
-        pref+=v[i];
-        if(i+1<n) best_pair = max(best_pair,v[i]+v[i+1]);
-        // trying all z
-        for(int L=0;L<=z;L++){
-            int moves = i + 2*L;  // how we are calculating moves
-            if(moves>k) break;
-            ans = max(ans,pref + 1LL*best_pair*L);
-        }
+    int n;cin>>n;
+    vector<int> v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i];
     }
-    cout<<ans<<endl;
+    map<int,int> m;
+    map<int,int> m2;
+    int t = -v[0],t2=v[0];
+    m[t]=1;
+    m2[t2]=1;
+    for(int i=1;i<n;i++){
+        if(i&1) t+=v[i],t2-=v[i];
+        else t-=v[i],t2+=v[i];
+        if(m[t] || t==0 || t2==0 || m[t2]){
+            cout<<"YES"<<endl;
+            return;
+        }
+        m[t]=1;
+        m2[t2]=1;
+    }
+    cout<<"NO"<<endl;
 }
+
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t;cin>>t;
-    while(t--) solve();
+    ll tc;tc = 1;
+    cin>>tc;
+    while(tc--) solve();
     return 0;
 }

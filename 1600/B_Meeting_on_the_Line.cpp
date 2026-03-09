@@ -5,6 +5,7 @@
 #define vi vector<int>
 #define vvl vector<vector<ll>>
 #define vpl vector<pair<ll,ll>>
+#define vpi vector<pair<int,int>>
 #define mp map<ll,ll>
 #define pr pair<ll,ll>
 #define pb push_back
@@ -20,28 +21,41 @@
 
 using namespace std;
 
+// minimax problem 
+
+bool possible(int mid,vpi &vp){
+
+}
+
 void solve() {
-    int n,k,z;cin>>n>>k>>z;
-    vector<ll> v(n); for(auto &it:v) cin>>it;
-    ll pref=0;
-    ll ans=0;
-    ll best_pair = 0;
-    for(int i=0;i<=k;i++){
-        pref+=v[i];
-        if(i+1<n) best_pair = max(best_pair,v[i]+v[i+1]);
-        // trying all z
-        for(int L=0;L<=z;L++){
-            int moves = i + 2*L;  // how we are calculating moves
-            if(moves>k) break;
-            ans = max(ans,pref + 1LL*best_pair*L);
+    int n;cin>>n;
+    vector<int> v(n),a(n);
+    for(auto &it:v) cin>>it;
+    for(auto &it:a) cin>>it;
+    vector<pair<int,int>> vp;
+    for(int i=0;i<n;i++) vp.pb({v[i],a[i]});
+    
+    // 
+    int low = 1,high = n-1,ans=0;
+    while(low<=high){
+        int mid = (low+high)/2;
+        //
+        if(possible(mid,vp)){
+
         }
+        else{
+
+        }
+        //
     }
     cout<<ans<<endl;
 }
+
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t;cin>>t;
+    ll t;t = 1;
+    cin>>t;
     while(t--) solve();
     return 0;
 }

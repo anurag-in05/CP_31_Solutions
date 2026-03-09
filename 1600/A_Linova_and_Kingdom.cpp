@@ -12,6 +12,7 @@
 #define rall(v) v.rbegin(), v.rend()
 
 using namespace std;
+// changed this code 
 void dfs1(int node, int parent, vector<vector<int>>& adj,vector<int>& depth, vector<int>& subtree_size,vector<int> &v){
     for(int child : adj[node]){
         if(child == parent) continue;
