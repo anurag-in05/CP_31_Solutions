@@ -19,42 +19,30 @@
 #define syn(f) f ? cout<<"Yes\n" : cout<<"No\n"
 
 using namespace std;
+
 void solve() {
-    string s;
-    cin >> s;
-    int n = s.size();
-    vector<int> pref(n, 0), suff(n, 0);
-    for (int i = 1; i < n; i++) {
-        if (s[i]=='v' && s[i-1]=='v') {
-            pref[i] = 1;
-        }
+    int n;cin>>n;
+    vector<int> a(n),b(n);
+    for(auto &it:a)cin>>it;
+    for(auto &it:b)cin>>it;
+    vector<pair<int,int>> v;
+    for(int i=0;i<n;i++){
+        v.push_back({a[i]-b[i],i+1});
     }
-    for (int i = 1; i < n; i++) {
-        pref[i] += pref[i-1];
+    sort(rall(v));
+    vi ans;
+    for(int i=0;i<n;i++){
+        if(v[i].first==v[0].first) ans.pb(v[i].second);
     }
-    for (int i = n-2; i >= 0; i--) {
-        suff[i] = suff[i+1];
-        if (s[i]=='v' && s[i+1]=='v') {
-            suff[i]++;
-        }
-    }
-
-    long long ans = 0;
-
-    for (int i = 0; i < n; i++) {
-        if (s[i] == 'o') {
-            ans += (long long)pref[i] * suff[i];
-        }
-    }
-
-    cout << ans << endl;
+    cout<<ans.size()<<endl;
+    for(int i=ans.size()-1;i>=0;i--) cout<<ans[i]<<" ";
+    cout<<endl;
 }
-
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     ll t;t = 1;
+    cin>>t;
     while(t--) solve();
     return 0;
 }
-

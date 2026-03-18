@@ -19,42 +19,29 @@
 #define syn(f) f ? cout<<"Yes\n" : cout<<"No\n"
 
 using namespace std;
+
 void solve() {
-    string s;
-    cin >> s;
-    int n = s.size();
-    vector<int> pref(n, 0), suff(n, 0);
-    for (int i = 1; i < n; i++) {
-        if (s[i]=='v' && s[i-1]=='v') {
-            pref[i] = 1;
+    // if prime?/
+    int n;cin>>n;
+    int n1=0,n2=0;
+    for(int i=2;i*i<=n;i++){
+        if(n%i == 0){
+            n1=n/i;
+            n2=n-n1;
+            break;
         }
     }
-    for (int i = 1; i < n; i++) {
-        pref[i] += pref[i-1];
+    if(n1==0){
+        cout<<1<<' '<<n-1<<endl;
     }
-    for (int i = n-2; i >= 0; i--) {
-        suff[i] = suff[i+1];
-        if (s[i]=='v' && s[i+1]=='v') {
-            suff[i]++;
-        }
-    }
-
-    long long ans = 0;
-
-    for (int i = 0; i < n; i++) {
-        if (s[i] == 'o') {
-            ans += (long long)pref[i] * suff[i];
-        }
-    }
-
-    cout << ans << endl;
+    else cout<<n1<<' '<<n2<<endl;
 }
 
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     ll t;t = 1;
+    cin>>t;
     while(t--) solve();
     return 0;
 }
-

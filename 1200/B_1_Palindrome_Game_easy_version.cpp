@@ -23,7 +23,16 @@ using namespace std;
 // Solve B2 version of it as well
 
 void solve() {
-    
+    int n;cin>>n;
+    string s;cin>>s;
+    int cnt_0 = count(all(s),'0');
+    if(cnt_0==1){
+        cout<<"BOB"<<endl;
+    }
+    else if(cnt_0%2==0){
+        cout<<"BOB"<<endl;
+    }
+    else cout<<"ALICE"<<endl;
 }
 
 int32_t main() {

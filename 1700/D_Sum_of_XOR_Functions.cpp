@@ -19,42 +19,27 @@
 #define syn(f) f ? cout<<"Yes\n" : cout<<"No\n"
 
 using namespace std;
+
 void solve() {
-    string s;
-    cin >> s;
-    int n = s.size();
-    vector<int> pref(n, 0), suff(n, 0);
-    for (int i = 1; i < n; i++) {
-        if (s[i]=='v' && s[i-1]=='v') {
-            pref[i] = 1;
-        }
-    }
-    for (int i = 1; i < n; i++) {
-        pref[i] += pref[i-1];
-    }
-    for (int i = n-2; i >= 0; i--) {
-        suff[i] = suff[i+1];
-        if (s[i]=='v' && s[i+1]=='v') {
-            suff[i]++;
-        }
+    int n;cin>>n;
+    vector<int> v(n);
+    for(auto &it:v)cin>>it;
+    int ans=0;
+    
+    // 
+
+    for(int i=0;i<30;i++){
+
+        fo
     }
 
-    long long ans = 0;
-
-    for (int i = 0; i < n; i++) {
-        if (s[i] == 'o') {
-            ans += (long long)pref[i] * suff[i];
-        }
-    }
-
-    cout << ans << endl;
 }
 
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     ll t;t = 1;
+    cin>>t;
     while(t--) solve();
     return 0;
 }
-

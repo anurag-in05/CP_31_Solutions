@@ -19,42 +19,40 @@
 #define syn(f) f ? cout<<"Yes\n" : cout<<"No\n"
 
 using namespace std;
+
+// 00000 
+// 00001 1 = 1 
+// 00010 2 = 1 + 1
+// 00011 1 = 1
+// 00100 3 = 1 + 1 + 1
+// 00101 1 = 1 
+// 00110 2 = 1 + 1
+// 00111 1 = 1 
+// 01000 3 = 1 + 1 + 1
+// 01001 1 = 1 
+// 01010 2 = 1 + 1
+// 01011 1 = 1 
+// 01100 3 = 1 + 1 + 1
+// 01101 1 = 1
+// 01110 2 = 1 + 1
+// 01111 1 = 1
+// 10000 4 = 1 + 1 + 1 + 1
+
 void solve() {
-    string s;
-    cin >> s;
-    int n = s.size();
-    vector<int> pref(n, 0), suff(n, 0);
-    for (int i = 1; i < n; i++) {
-        if (s[i]=='v' && s[i-1]=='v') {
-            pref[i] = 1;
-        }
+    ll n;cin>>n;
+    ll ans=0;
+    while(n){
+        ans+=n;
+        n/=2;
     }
-    for (int i = 1; i < n; i++) {
-        pref[i] += pref[i-1];
-    }
-    for (int i = n-2; i >= 0; i--) {
-        suff[i] = suff[i+1];
-        if (s[i]=='v' && s[i+1]=='v') {
-            suff[i]++;
-        }
-    }
-
-    long long ans = 0;
-
-    for (int i = 0; i < n; i++) {
-        if (s[i] == 'o') {
-            ans += (long long)pref[i] * suff[i];
-        }
-    }
-
-    cout << ans << endl;
+    cout<<ans<<endl;
 }
 
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     ll t;t = 1;
+    cin>>t;
     while(t--) solve();
     return 0;
 }
-
