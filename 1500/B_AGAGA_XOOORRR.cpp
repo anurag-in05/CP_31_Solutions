@@ -24,16 +24,21 @@ void solve() {
     int n;cin>>n;
     vector<int> v(n);for(auto &it:v)cin>>it;
     bool check = false;
-    int prefxor=0;
+    ll prefxor=0;
     for(int i=0;i<n;i++){
         prefxor^=v[i];
+        ll curxor=0;
         int segments=0;
-        int curxor=0;
         for(int j=i+1;j<n;j++){
             curxor^=v[j];
-            segments++;
-            if(pref){
+            if(curxor==prefxor){
+                segments++;
+                curxor=0;
             }
+        }
+        if(curxor==0 && segments>0){
+            check=true;
+            break;
         }
     }
     cout<<(check?"YES":"NO")<<endl;
@@ -42,8 +47,7 @@ void solve() {
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t;t = 1;
-    cin>>t;
+    ll t;cin>>t;
     while(t--) solve();
     return 0;
 }
