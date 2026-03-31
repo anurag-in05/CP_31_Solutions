@@ -5,7 +5,6 @@
 #define vi vector<int>
 #define vvl vector<vector<ll>>
 #define vpl vector<pair<ll,ll>>
-#define vpi vector<pair<int,int>>
 #define mp map<ll,ll>
 #define pr pair<ll,ll>
 #define pb push_back
@@ -16,26 +15,15 @@
 #define lb lower_bound
 #define ff first
 #define ss second
-#define yn(f) f ? cout<<"YES\n" : cout<<"NO\n"
-#define syn(f) f ? cout<<"Yes\n" : cout<<"No\n"
+const int mod = 1e9+7
+const int MAXN = ;
 
 using namespace std;
 
 void solve() {
-    int n;
-    cin >> n;
-    vector<long long> x(n), t(n);
-    for (int i = 0; i < n; ++i) cin >> x[i];
-    for (int i = 0; i < n; ++i) cin >> t[i];
-    long long max_val = x[0] + t[0];
-    long long min_val = x[0] - t[0];
-    for (int i = 1; i < n; ++i) {
-        max_val = max(max_val, x[i] + t[i]);
-        min_val = min(min_val, x[i] - t[i]);
-    }
-    double result = (max_val + min_val) / 2.0; 
-    cout << fixed << setprecision(7) << result << "\n";
+    
 }
+
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);

@@ -11,34 +11,49 @@
 #define pop pop_back
 #define all(v) v.begin(), v.end()
 #define rall(v) v.rbegin(), v.rend()
-#define ub upper_bound
-#define lb lower_bound
-#define ff first
-#define ss second
+const int mod = 1e9+7;
+
 using namespace std;
 
 void solve(){
-    ll n,w;cin>>n>>w;
-    vi bits(25);
+    int n;cin>>n;
+    int nonzero=0;
+    vi v(n);for(auto &it:v){
+        cin>>it;
+        if(v[i]==0) nonzero++;
+    }
+    if(nonzero==n){
+        cout<<"NO"<<endl;
+        return;
+    }
+    // non neg
+    vector<int> pos,neg;
     for(int i=0;i<n;i++){
-        int a;cin>>a;
-        int k = __builtin_ctzll(a);
-        bits[k]++;
+        if(v[i]<0) neg.pb(v[i]);
+        else pos.pb(v[i]);
     }
 
-    int low = ,high = ;
-    while(low<=high){
+    vector<int> ans;
+    ll psum=0,i=0;
+    while(i<n){
+        if(){
 
+        }
+        else{
+
+        }
+        i++;   
     }
 
-    cout<<ans<<endl;
+    for(auto it:ans)cout<<it<<" ";
+    cout<<endl;
+
 }
 
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t;t = 1;
-    cin>>t;
+    ll t;cin>>t;
     while(t--) solve();
     return 0;
 }

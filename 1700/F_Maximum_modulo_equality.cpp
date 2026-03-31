@@ -10,7 +10,10 @@ using namespace std;
 
 int MAXN = 2 * 1e5 + 1;
 int log[MAXN];
-void solve() {
+int st[][];
+
+
+void solve(){
     int n;cin>>n;
     int st[n][20];
     int q;cin>>q;

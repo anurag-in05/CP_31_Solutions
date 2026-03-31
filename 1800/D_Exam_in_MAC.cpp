@@ -15,13 +15,27 @@
 #define lb lower_bound
 #define ff first
 #define ss second
-#define yn(f) f ? cout<<"YES\n" : cout<<"NO\n"
-#define syn(f) f ? cout<<"Yes\n" : cout<<"No\n"
 
 using namespace std;
 
 void solve() {
+    ll n,c;cin>>n>>c;
+    vl v(n);for(auto &it:v)cin>>it;
     
+    ll ans = (n+1)*(n+2)/2;
+    
+    ll ne=0,po=0;
+    for(int i=0;i<n;i++){
+        if(v[i]&1) po++;
+        else ne++;
+
+        //
+        // 
+        
+    }
+    ans += (ne)*(ne+1)/2;
+    ans += (po)*(po+1)/2;;
+    cout<<ans<<endl;
 }
 
 int32_t main() {
